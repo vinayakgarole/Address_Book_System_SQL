@@ -12,3 +12,26 @@ mysql> select database();
 | address_book_system |
 +---------------------+
 1 row in set (0.00 sec)
+
+UC2 : Ability to create a Address Book Table with first and last names, 
+     address, city,state, zip, phone number and email as its attributes
+
+CREATE TABLE Persons (    PersonID int,    LastName varchar(255),
+    ->         FirstName varchar(255), Address varchar(255), City varchar(255),
+    ->         PhoneNumber BIGINT(13),  email varchar(255), zip int(10));
+Query OK, 0 rows affected, 2 warnings (0.40 sec)
+
+mysql> desc Persons;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| PersonID    | int          | YES  |     | NULL    |       |
+| LastName    | varchar(255) | YES  |     | NULL    |       |
+| FirstName   | varchar(255) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
+| PhoneNumber | bigint       | YES  |     | NULL    |       |
+| email       | varchar(255) | YES  |     | NULL    |       |
+| zip         | int          | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
