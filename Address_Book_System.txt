@@ -140,3 +140,39 @@ Rows matched: 1  Changed: 1  Warnings: 0
 |        2 | Raj      | Shubham   | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
 +----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
 5 rows in set (0.00 sec)
+
+UC8 : Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+
+SELECT * FROM Persons ORDER BY FirstName;
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Bhosale  | Marathe   | Satara  | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        2 | Raj      | Shubham   | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
+|        1 | Garole   | Vinayak   | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Persons WHERE City = 'Nandurbar';
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Persons;
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Marathe   | Satara  | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+5 rows in set (0.00 sec)
