@@ -53,3 +53,18 @@ mysql> SELECT * FROM Persons;
 |        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
 +----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
 2 rows in set (0.00 sec)
+
+UC4 : Ability to edit existing contact person
+
+ update Persons set Address = 'Mumbai' WHERE Address = 'Ranale';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM Persons;
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+2 rows in set (0.00 sec)
