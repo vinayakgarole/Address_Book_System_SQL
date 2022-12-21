@@ -97,3 +97,46 @@ INSERT INTO Persons ( PersonID, LastName, FirstName, Address, City,
     ->     9856244512, 'sandippangare@gamil.com', 410001);
 Query OK, 2 rows affected (0.07 sec)
 Records: 2  Duplicates: 0  Warnings: 0
+
+UC7 : Ability to understand the size of address book by City and State
+
+ SELECT COUNT(City) FROM Persons;
++-------------+
+| COUNT(City) |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO Persons ( PersonID, LastName, FirstName, Address, City, PhoneNumber, email, zip)
+    -> VALUES (1, 'Bhosale', 'Rahul', 'Satara', 'Satara',7775827779, 'rahulbhosalel19@gmail.com', 431202),(2, 'Raj',
+    ->  'Shubham', 'Bandra', 'Mumbai', 9856244512, 'rajshubham@gmail.com', 410001);
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Persons;
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Rahul     | Satara  | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update Persons set FirstName = 'Marathe' WHERE LastName = 'Bhosale';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+ SELECT * FROM Persons;
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Marathe   | Satara  | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
++----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
+5 rows in set (0.00 sec)
