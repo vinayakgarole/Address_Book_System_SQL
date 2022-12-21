@@ -221,3 +221,15 @@ mysql> SELECT * FROM Persons;
 |        2 | Raj      | Shubham   | Family     | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
 +----------+----------+-----------+------------+---------+-----------+-------------+---------------------------+--------+
 5 rows in set (0.00 sec)
+
+UC10 : Ability to get number of contact persons i.e. count by type
+
+SELECT Type, COUNT(FirstName) FROM Persons GROUP BY Type;
++------------+------------------+
+| Type       | COUNT(FirstName) |
++------------+------------------+
+| Friend     |                3 |
+| Profession |                1 |
+| Family     |                1 |
++------------+------------------+
+3 rows in set (0.06 sec)
