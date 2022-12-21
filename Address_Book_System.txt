@@ -176,3 +176,48 @@ mysql> SELECT * FROM Persons;
 |        2 | Raj      | Shubham   | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
 +----------+----------+-----------+---------+-----------+-------------+---------------------------+--------+
 5 rows in set (0.00 sec)
+
+UC9 : Ability to identify each Address Book with name and Type.
+
+ SELECT * FROM Persons;
++----------+----------+-----------+------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Type | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | NULL | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | NULL | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | NULL | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Marathe   | NULL | Satara  | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | NULL | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
++----------+----------+-----------+------+---------+-----------+-------------+---------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update Persons set Type = 'Family' WHERE FirstName = 'Vinayak';
+Query OK, 2 rows affected (0.07 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update Persons set Type = 'Family' WHERE FirstName = 'Shubham';
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Persons set Type = 'Friend' WHERE FirstName = 'Marathe';
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Persons set Type = 'Profession' WHERE FirstName = 'Sandip';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+update Persons set Type = 'Friend' WHERE FirstName = 'Vinayak';
+Query OK, 2 rows affected (0.07 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT * FROM Persons;
++----------+----------+-----------+------------+---------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Type       | Address | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+------------+---------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Friend     | Mumbai  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Friend     | Ranale  | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Profession | Rajale  | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Marathe   | Friend     | Satara  | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | Family     | Bandra  | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
++----------+----------+-----------+------------+---------+-----------+-------------+---------------------------+--------+
+5 rows in set (0.00 sec)
