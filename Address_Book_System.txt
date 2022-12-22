@@ -233,3 +233,91 @@ SELECT Type, COUNT(FirstName) FROM Persons GROUP BY Type;
 | Family     |                1 |
 +------------+------------------+
 3 rows in set (0.06 sec)
+
+UC11__Adding Person to family and friends type in Addressbook Table
+
+ alter table INSERT INTO addressbook_details ( firstName, lastName, address, city,state, zip, phone_number, email_address,type) VALUES
+    -> ^C
+mysql> INSERT INTO Persons (PersonID, LastName, FirstName, Type, Address, City, PhoneNumber, email, zip) VALUES   (3,'Singh', 'Santosh', 'Friend', 'Gomtinagar', 'Kanpur', '05566667','surabh@gmail.com','666651');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from Persons;
++----------+----------+-----------+------------+------------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Type       | Address    | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+------------+------------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Friend     | Mumbai     | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Friend     | Ranale     | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Profession | Rajale     | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Marathe   | Friend     | Satara     | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | Family     | Bandra     | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
+|        3 | Singh    | Santosh   | Friend     | Gomtinagar | Kanpur    |     5566667 | surabh@gmail.com          | 666651 |
++----------+----------+-----------+------------+------------+-----------+-------------+---------------------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO Persons (PersonID, LastName, FirstName, Type, Address, City, PhoneNumber, email, zip) VALUES   (3,'Singh', 'Santosh', 'Family', 'Gomtinagar', 'Kanpur', '05566667','surabh@gmail.com','666651');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from Persons;
++----------+----------+-----------+------------+------------+-----------+-------------+---------------------------+--------+
+| PersonID | LastName | FirstName | Type       | Address    | City      | PhoneNumber | email                     | zip    |
++----------+----------+-----------+------------+------------+-----------+-------------+---------------------------+--------+
+|        1 | Garole   | Vinayak   | Friend     | Mumbai     | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        1 | Garole   | Vinayak   | Friend     | Ranale     | Nandurbar |  8380867601 | vinayakgarole10@gmail.com | 425411 |
+|        2 | Pangare  | Sandip    | Profession | Rajale     | Nandurbar |  9856244512 | sandippangare@gamil.com   | 410001 |
+|        1 | Bhosale  | Marathe   | Friend     | Satara     | Satara    |  7775827779 | rahulbhosalel19@gmail.com | 431202 |
+|        2 | Raj      | Shubham   | Family     | Bandra     | Mumbai    |  9856244512 | rajshubham@gmail.com      | 410001 |
+|        3 | Singh    | Santosh   | Friend     | Gomtinagar | Kanpur    |     5566667 | surabh@gmail.com          | 666651 |
+|        3 | Singh    | Santosh   | Family     | Gomtinagar | Kanpur    |     5566667 | surabh@gmail.com          | 666651 |
++----------+----------+-----------+------------+------------+-----------+-------------+---------------------------+--------+
+7 rows in set (0.00 sec)
+
+UC12 ER Diagram
+
+ create table person_contact(
+    ->
+    ->      Lastname varchar(50) not null,
+    ->      Firstname varchar(50) not null,
+    ->      Address varchar(100) not null,
+    ->      phonenumber bigint not null,
+    ->      email varchar(50),
+    ->      primary key (firstname)
+    ->      );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> desc Persons;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| PersonID    | int          | YES  |     | NULL    |       |
+| LastName    | varchar(255) | YES  |     | NULL    |       |
+| FirstName   | varchar(255) | YES  |     | NULL    |       |
+| Type        | varchar(150) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
+| PhoneNumber | bigint       | YES  |     | NULL    |       |
+| email       | varchar(255) | YES  |     | NULL    |       |
+| zip         | int          | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+ create table person_address(
+    ->      zip int(10) not null,
+    ->      city varchar(100) not null,
+    ->      state varchar(100) not null,
+    ->      primary key(zip));
+Query OK, 0 rows affected, 1 warning (0.16 sec)
+
+mysql> desc Persons;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| PersonID    | int          | YES  |     | NULL    |       |
+| LastName    | varchar(255) | YES  |     | NULL    |       |
+| FirstName   | varchar(255) | YES  |     | NULL    |       |
+| Type        | varchar(150) | YES  |     | NULL    |       |
+| Address     | varchar(255) | YES  |     | NULL    |       |
+| City        | varchar(255) | YES  |     | NULL    |       |
+| PhoneNumber | bigint       | YES  |     | NULL    |       |
+| email       | varchar(255) | YES  |     | NULL    |       |
+| zip         | int          | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
