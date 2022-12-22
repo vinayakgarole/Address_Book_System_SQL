@@ -321,3 +321,29 @@ mysql> desc Persons;
 | zip         | int          | YES  |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 9 rows in set (0.00 sec)
+
+UC13 Ensure all retrieve queries
+
+ select* from person_address;
++--------+--------+-----------+
+| zip    | city   | state     |
++--------+--------+-----------+
+| 500039 | Uppal  | Telangana |
+| 506178 | panaji | Goa       |
++--------+--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from person_contact_address;
+Empty set (0.00 sec)
+
+mysql> select* from person_contact_address;
+Empty set (0.00 sec)
+
+mysql> select* from person_contact;
++----------+-----------+-----------+-------------+-------------------+
+| Lastname | Firstname | Address   | phonenumber | email             |
++----------+-----------+-----------+-------------+-------------------+
+| balli    | shiva     | shamirpet |  7894562814 | shiva@gmail.com   |
+| gadi     | sudeer    | bhodhan   |  4875961235 | sudheer@gmail.com |
++----------+-----------+-----------+-------------+-------------------+
+2 rows in set (0.00 sec)
